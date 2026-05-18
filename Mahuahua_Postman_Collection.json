@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "b1a113a1-7786-455b-b5bc-1fcf4e4fdb02",
+		"name": "🏥 Mahuahua - Clínica Psicológica API",
+		"description": "Colección completa y profesional para probar el CRUD y la lógica de negocio de la plataforma Mahuahua. Incluye todos los endpoints (Crear, Leer, Actualizar, Eliminar).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "🧑‍🤝‍🧑 1. Pacientes",
+			"item": [
+				{
+					"name": "➕ Crear Paciente",
+					"request": {
+						"method": "POST",
+						"header": [{"key": "Content-Type", "value": "application/json"}],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Juan\",\n    \"apellidos\": \"Perez\",\n    \"email\": \"juan.perez@example.com\",\n    \"telefono\": \"+573001234567\",\n    \"fechaNacimiento\": \"1990-05-15\"\n}"
+						},
+						"url": {"raw": "{{base_url}}/api/pacientes", "host": ["{{base_url}}"], "path": ["api", "pacientes"]}
+					}
+				},
+				{
+					"name": "👁️ Obtener Todos los Pacientes",
+					"request": {
+						"method": "GET",
+						"url": {"raw": "{{base_url}}/api/pacientes", "host": ["{{base_url}}"], "path": ["api", "pacientes"]}
+					}
+				},
+				{
+					"name": "🔍 Obtener Paciente por ID",
+					"request": {
+						"method": "GET",
+						"url": {"raw": "{{base_url}}/api/pacientes/1", "host": ["{{base_url}}"], "path": ["api", "pacientes", "1"]}
+					}
+				},
+				{
+					"name": "✏️ Actualizar Paciente",
+					"request": {
+						"method": "PUT",
+						"header": [{"key": "Content-Type", "value": "application/json"}],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Juan Carlos\",\n    \"apellidos\": \"Perez Lopez\",\n    \"email\": \"juan.perez@example.com\",\n    \"telefono\": \"+573001234567\",\n    \"fechaNacimiento\": \"1990-05-15\"\n}"
+						},
+						"url": {"raw": "{{base_url}}/api/pacientes/1", "host": ["{{base_url}}"], "path": ["api", "pacientes", "1"]}
+					}
+				},
+				{
+					"name": "🗑️ Eliminar Paciente",
+					"request": {
+						"method": "DELETE",
+						"url": {"raw": "{{base_url}}/api/pacientes/1", "host": ["{{base_url}}"], "path": ["api", "pacientes", "1"]}
+					}
+				}
+			]
+		},
+		{
+			"name": "🧠 2. Psicólogos",
+			"item": [
+				{
+					"name": "➕ Crear Psicólogo",
+					"request": {
+						"method": "POST",
+						"header": [{"key": "Content-Type", "value": "application/json"}],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Dra. Ana\",\n    \"apellidos\": \"Gomez\",\n    \"especialidad\": \"Psicología Clínica\",\n    \"email\": \"ana.gomez@mahuahua.com\"\n}"
+						},
+						"url": {"raw": "{{base_url}}/api/psicologos", "host": ["{{base_url}}"], "path": ["api", "psicologos"]}
+					}
+				},
+				{
+					"name": "👁️ Obtener Todos los Psicólogos",
+					"request": {
+						"method": "GET",
+						"url": {"raw": "{{base_url}}/api/psicologos", "host": ["{{base_url}}"], "path": ["api", "psicologos"]}
+					}
+				},
+				{
+					"name": "🔍 Obtener Psicólogo por ID",
+					"request": {
+						"method": "GET",
+						"url": {"raw": "{{base_url}}/api/psicologos/1", "host": ["{{base_url}}"], "path": ["api", "psicologos", "1"]}
+					}
+				},
+				{
+					"name": "✏️ Actualizar Psicólogo",
+					"request": {
+						"method": "PUT",
+						"header": [{"key": "Content-Type", "value": "application/json"}],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Dra. Ana Maria\",\n    \"apellidos\": \"Gomez\",\n    \"especialidad\": \"Terapia Cognitivo-Conductual\",\n    \"email\": \"ana.gomez@mahuahua.com\"\n}"
+						},
+						"url": {"raw": "{{base_url}}/api/psicologos/1", "host": ["{{base_url}}"], "path": ["api", "psicologos", "1"]}
+					}
+				},
+				{
+					"name": "🗑️ Eliminar Psicólogo",
+					"request": {
+						"method": "DELETE",
+						"url": {"raw": "{{base_url}}/api/psicologos/1", "host": ["{{base_url}}"], "path": ["api", "psicologos", "1"]}
+					}
+				}
+			]
+		},
+		{
+			"name": "📅 3. Citas",
+			"item": [
+				{
+					"name": "➕ Agendar Cita",
+					"request": {
+						"method": "POST",
+						"header": [{"key": "Content-Type", "value": "application/json"}],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pacienteId\": 1,\n    \"psicologoId\": 1,\n    \"fechaHora\": \"2026-06-01T10:00:00\",\n    \"motivo\": \"Consulta por ansiedad generalizada\"\n}"
+						},
+						"url": {"raw": "{{base_url}}/api/citas", "host": ["{{base_url}}"], "path": ["api", "citas"]}
+					}
+				},
+				{
+					"name": "🔍 Obtener Cita por ID",
+					"request": {
+						"method": "GET",
+						"url": {"raw": "{{base_url}}/api/citas/1", "host": ["{{base_url}}"], "path": ["api", "citas", "1"]}
+					}
+				},
+				{
+					"name": "👁️ Obtener Citas por Paciente",
+					"request": {
+						"method": "GET",
+						"url": {"raw": "{{base_url}}/api/citas/paciente/1", "host": ["{{base_url}}"], "path": ["api", "citas", "paciente", "1"]}
+					}
+				},
+				{
+					"name": "👁️ Obtener Citas por Psicólogo",
+					"request": {
+						"method": "GET",
+						"url": {"raw": "{{base_url}}/api/citas/psicologo/1", "host": ["{{base_url}}"], "path": ["api", "citas", "psicologo", "1"]}
+					}
+				},
+				{
+					"name": "🔄 Cambiar Estado de Cita",
+					"request": {
+						"method": "PATCH",
+						"url": {
+							"raw": "{{base_url}}/api/citas/1/estado?estado=CONFIRMADA",
+							"host": ["{{base_url}}"],
+							"path": ["api", "citas", "1", "estado"],
+							"query": [{"key": "estado", "value": "CONFIRMADA", "description": "Opciones: PENDIENTE, CONFIRMADA, COMPLETADA, CANCELADA"}]
+						}
+					}
+				},
+				{
+					"name": "🗑️ Eliminar Cita",
+					"request": {
+						"method": "DELETE",
+						"url": {"raw": "{{base_url}}/api/citas/1", "host": ["{{base_url}}"], "path": ["api", "citas", "1"]}
+					}
+				}
+			]
+		},
+		{
+			"name": "📁 4. Historias Clínicas",
+			"item": [
+				{
+					"name": "🔍 Ver Historia por Paciente",
+					"request": {
+						"method": "GET",
+						"url": {"raw": "{{base_url}}/api/historias-clinicas/paciente/1", "host": ["{{base_url}}"], "path": ["api", "historias-clinicas", "paciente", "1"]}
+					}
+				}
+			]
+		},
+		{
+			"name": "📝 5. Evoluciones (Notas)",
+			"item": [
+				{
+					"name": "➕ Crear Nota de Evolución",
+					"request": {
+						"method": "POST",
+						"header": [{"key": "Content-Type", "value": "application/json"}],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"historiaClinicaId\": 1,\n    \"citaId\": 1,\n    \"notas\": \"El paciente muestra una leve mejoría frente a los ataques de pánico. Se recomiendan ejercicios de respiración guiada.\",\n    \"diagnostico\": \"Ansiedad Moderada\"\n}"
+						},
+						"url": {"raw": "{{base_url}}/api/evoluciones", "host": ["{{base_url}}"], "path": ["api", "evoluciones"]}
+					}
+				},
+				{
+					"name": "👁️ Ver Evoluciones de Historia Clínica",
+					"request": {
+						"method": "GET",
+						"url": {"raw": "{{base_url}}/api/evoluciones/historia-clinica/1", "host": ["{{base_url}}"], "path": ["api", "evoluciones", "historia-clinica", "1"]}
+					}
+				},
+				{
+					"name": "🗑️ Eliminar Evolución",
+					"request": {
+						"method": "DELETE",
+						"url": {"raw": "{{base_url}}/api/evoluciones/1", "host": ["{{base_url}}"], "path": ["api", "evoluciones", "1"]}
+					}
+				}
+			]
+		},
+		{
+			"name": "💳 6. Pagos",
+			"item": [
+				{
+					"name": "➕ Registrar Pago de Cita",
+					"request": {
+						"method": "POST",
+						"header": [{"key": "Content-Type", "value": "application/json"}],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"citaId\": 1,\n    \"monto\": 120000.00,\n    \"metodoPago\": \"TARJETA\"\n}"
+						},
+						"url": {"raw": "{{base_url}}/api/pagos", "host": ["{{base_url}}"], "path": ["api", "pagos"]}
+					}
+				},
+				{
+					"name": "🔍 Ver Pago por Cita",
+					"request": {
+						"method": "GET",
+						"url": {"raw": "{{base_url}}/api/pagos/cita/1", "host": ["{{base_url}}"], "path": ["api", "pagos", "cita", "1"]}
+					}
+				},
+				{
+					"name": "🔄 Actualizar Estado de Pago",
+					"request": {
+						"method": "PATCH",
+						"url": {
+							"raw": "{{base_url}}/api/pagos/1/estado?estado=FALLIDO",
+							"host": ["{{base_url}}"],
+							"path": ["api", "pagos", "1", "estado"],
+							"query": [{"key": "estado", "value": "FALLIDO", "description": "Opciones: PENDIENTE, COMPLETADO, FALLIDO"}]
+						}
+					}
+				},
+				{
+					"name": "🗑️ Eliminar Pago",
+					"request": {
+						"method": "DELETE",
+						"url": {"raw": "{{base_url}}/api/pagos/1", "host": ["{{base_url}}"], "path": ["api", "pagos", "1"]}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
